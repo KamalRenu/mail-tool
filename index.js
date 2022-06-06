@@ -19,10 +19,10 @@ app.use("/api/user", userRouter);
 app.use("/api/mailer", mailRouter);
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(_dirname, '/frontend/build')));
+    app.use(express.static(path.join(_dirname, '/client/build')));
 
     app.get('*', (req, res) =>{
-        res.sendFile(path.resolve(_dirname, 'frontend', 'build', 'index.html'))
+        res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'))
     })
 } else {
     app.get('/', (req, res) => {
